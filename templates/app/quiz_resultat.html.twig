@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Score index
+{% endblock %}
+
+{% block body %}
+	<h1>Score index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Quiz</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for score in scores %}
+				<tr>
+					<td>{{ score.id }}</td>
+					<td>
+						{% for s in score.participant %}
+							{{ s.nom }}
+						{% endfor %}
+					</td>
+					<td>
+						{% for s in score.participant %}
+							{{ s.prenom }}
+						{% endfor %}
+					</td>
+					<td>
+						{% for s in score.quiz %}
+							{{ s.label }}
+						{% endfor %}
+					</td>
+					<td>{{ score.value }}</td>
+
+				</tr>
+			</tbody>
+		</tbody>
+	</tr>
+{% else %}
+	<tr>
+		<td colspan="3">no records found</td>
+	</tr>
+{% endfor %}</tbody></table><a href="{{ path('listeQuiz') }}">Retour à la liste des quiz</a>{% endblock %}

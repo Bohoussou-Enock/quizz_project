@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AppController!
+{% endblock %}
+
+{% block body %}
+	<div style="margin: 20px">
+		<h1 class="text-primary">Bienvenue à vous sur notre application de quiz</h1>
+	</div>
+	<h2>Etapes pour participer à un quiz</h2><br>
+
+	<div class="card-group">
+		<div class="card">
+			<img src="{{ asset('img/inscriptions.png') }}" style="height: 186px" class="card-img-top" alt="...">
+
+			<div class="card-body">
+				<h3 class="card-title">S'inscrire en créant son compte</h3>
+			</div>
+		</div>
+		<div class="card">
+			<img src="{{asset('img/connexion.jpg')}}" style="height: 186px" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h3 class="card-title">Se connecter avec le compte créé</h3>
+			</div>
+		</div>
+		<div class="card">
+			<img src="{{asset('img/quiz.jpg')}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h3 class="card-title">Choisissez un quiz puis répondez aux questionde ce quiz.</h3>
+			</div>
+		</div>
+	</div><br>
+
+
+	<a href="{{ path('enregistrementParticipant') }}" class="btn btn-primary">Commencer</a>
+
+{% endblock %}

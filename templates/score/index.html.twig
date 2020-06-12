@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Score index
+{% endblock %}
+
+{% block body %}
+	<h1>Score index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom Participant</th>
+				<th>Prénom Participant</th>
+				<th>Quiz</th>
+				<th>Total</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for score in scores %}
+				<tr>
+					<td>{{ score.id }}</td>
+					<td>
+						{% for s in score.participant %}
+							{{ s.participant.nom }}
+						{% endfor %}
+					</td>
+					<td>
+						{% for s in score.participant %}
+							{{ s.participant.prenom }}
+						{% endfor %}
+					</td>
+					<td>
+						{% for s in score.quiz %}
+							{{ s.quiz.label }}
+						{% endfor %}
+					</td>
+				</tr>
+			</td>
+			<td>{{ score.value }}</td>
+			<td>
+				<a href="{{ path('score_show', {'id': score.id}) }}">show</a>
+				<a href="{{ path('score_edit', {'id': score.id}) }}">edit</a>
+			</td>
+		</tbody>
+	</tr>
+{% else %}
+	<tr>
+		<td colspan="3">no records found</td>
+	</tr>
+{% endfor %}</tbody></table><a href="{{ path('score_new') }}">Create new</a>{% endblock %}

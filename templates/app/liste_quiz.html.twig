@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+	<div style="margin: 30px;">
+		<h1>Liste des quiz</h1>
+	</div>
+	<!-- Card Wider -->
+	<div class="row">
+		{% for quiz in quiz %}
+			<div class="col">
+				<div
+					class="card card-cascade wider">
+					<!-- Card content -->
+					<div
+						class="card-body card-body-cascade text-center">
+
+						<!-- Title -->
+						<h4 class="card-title">
+							<a href="{{ path('quizQuestion', {id : quiz.id})}}">{{ quiz.label }}</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+
+{% endblock %}
